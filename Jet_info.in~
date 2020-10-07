@@ -1,0 +1,221 @@
+########################################
+	        Smear
+#######################################
+
+SmearTheJet 1
+JetEnergyScaleOffset 0.3
+
+GenMatchingDeltaR 0.4
+MuonMatchingDeltaR  0.3
+ElectronMatchingDeltaR  0.3
+TauMatchingDeltaR  0.3
+
+
+
+########################################
+               Jet1
+#######################################
+
+EtaCut 0. 5.0
+PtCut 30.0
+
+# The following was modified by NDS on 06/29/20.  The jet ID requirement is different for 2016 than it is for 2017 and 2018.  For
+# 2016, the recommendation is to use LooseID whereas for 2017 and 2018 the TightID is recommended.  It's possible to toggle 
+# between these two by using 0 and 1: 0 = false, 1 = true.  You can only have one value selected "true."
+ApplyLooseID 0
+ApplyTightID 1
+
+RemoveOverlapWithMuon1s 1
+RemoveOverlapWithMuon2s 0
+Muon1MatchingDeltaR  0.4
+Muon2MatchingDeltaR  0.3
+
+RemoveOverlapWithElectron1s 0
+RemoveOverlapWithElectron2s 0
+Electron1MatchingDeltaR  0.3
+Electron2MatchingDeltaR  0.3
+
+RemoveOverlapWithTau1s 0
+RemoveOverlapWithTau2s 0
+Tau1MatchingDeltaR  0.3
+Tau2MatchingDeltaR 0.3
+
+RemoveOverlapWithJs 1
+JMatchingDeltaR 0.8
+
+RemoveOverlapWithBs 1
+BJMatchingDeltaR 0.3
+
+Apply2017EEnoiseVeto false
+
+########################################
+	        Jet2
+#######################################
+
+EtaCut 0. 5.0
+PtCut 30.0
+
+# The following was modified by NDS on 06/29/20.  The jet ID requirement is different for 2016 than it is for 2017 and 2018.  For
+# 2016, the recommendation is to use LooseID whereas for 2017 and 2018 the TightID is recommended.  It's possible to toggle 
+# between these two by using 0 and 1: 0 = false, 1 = true.  You can only have one value selected "true."
+ApplyLooseID 0
+ApplyTightID 1
+
+RemoveOverlapWithMuon1s 0
+RemoveOverlapWithMuon2s 0
+Muon1MatchingDeltaR  0.4
+Muon2MatchingDeltaR  0.3
+
+RemoveOverlapWithElectron1s 0
+RemoveOverlapWithElectron2s 0
+Electron1MatchingDeltaR  0.3
+Electron2MatchingDeltaR  0.3
+
+RemoveOverlapWithTau1s 0
+RemoveOverlapWithTau2s 0
+Tau1MatchingDeltaR  0.3
+Tau2MatchingDeltaR 0.3
+
+RemoveOverlapWithJs 1
+JMatchingDeltaR 0.8
+
+RemoveOverlapWithBs 1
+BJMatchingDeltaR 0.3
+
+Apply2017EEnoiseVeto false
+
+####################################
+          CentralJet
+###################################
+
+PtCut 30.0
+
+# The following was modified by NDS on 06/29/20.  The jet ID requirement is different for 2016 than it is for 2017 and 2018.  For
+# 2016, the recommendation is to use LooseID whereas for 2017 and 2018 the TightID is recommended.  It's possible to toggle 
+# between these two by using 0 and 1: 0 = false, 1 = true.  You can only have one value selected "true."
+ApplyLooseID 0
+ApplyTightID 1
+
+RemoveOverlapWithMuon1s 1
+RemoveOverlapWithMuon2s 0
+Muon1MatchingDeltaR 0.4
+Muon2MatchingDeltaR 0.3
+
+RemoveOverlapWithElectron1s 0
+RemoveOverlapWithElectron2s 0
+Electron1MatchingDeltaR 0.3
+Electron2MatchingDeltaR 0.3
+
+RemoveOverlapWithTau1s 0
+RemoveOverlapWithTau2s 0
+Tau1MatchingDeltaR 0.3
+Tau2MatchingDeltaR 0.3
+
+Apply2017EEnoiseVeto false
+
+####################################
+	 FirstLeadingJet
+###################################
+
+DoDiscrByThisJet 1
+
+EtaCut 0.0 5.0
+PtCut 30.0
+
+# The following was modified by NDS on 06/29/20.  The jet ID requirement is different for 2016 than it is for 2017 and 2018.  For
+# 2016, the recommendation is to use LooseID whereas for 2017 and 2018 the TightID is recommended.  It's possible to toggle 
+# between these two by using 0 and 1: 0 = false, 1 = true.  You can only have one value selected "true."
+ApplyLooseID 0
+ApplyTightID 1
+
+RemoveOverlapWithMuon1s 1 
+RemoveOverlapWithMuon2s 0
+Muon1MatchingDeltaR 0.4 
+Muon2MatchingDeltaR 0.3
+
+RemoveOverlapWithElectron1s 0
+RemoveOverlapWithElectron2s 0
+Electron1MatchingDeltaR 0.3
+Electron2MatchingDeltaR 0.3
+
+RemoveOverlapWithTau1s 0
+RemoveOverlapWithTau2s 0
+Tau1MatchingDeltaR 0.3
+Tau2MatchingDeltaR 0.3
+
+Apply2017EEnoiseVeto false
+
+####################################
+	 SecondLeadingJet
+###################################
+
+DoDiscrByThisJet 1
+
+EtaCut 0.0 5.0
+PtCut 30.0
+
+# The following was modified by NDS on 06/29/20.  The jet ID requirement is different for 2016 than it is for 2017 and 2018.  For
+# 2016, the recommendation is to use LooseID whereas for 2017 and 2018 the TightID is recommended.  It's possible to toggle 
+# between these two by using 0 and 1: 0 = false, 1 = true.  You can only have one value selected "true."
+ApplyLooseID 0
+ApplyTightID 1
+
+RemoveOverlapWithMuon1s 1
+RemoveOverlapWithMuon2s 0
+Muon1MatchingDeltaR 0.4
+Muon2MatchingDeltaR 0.3
+
+RemoveOverlapWithElectron1s 0
+RemoveOverlapWithElectron2s 0
+Electron1MatchingDeltaR 0.3
+Electron2MatchingDeltaR 0.3
+
+RemoveOverlapWithTau1s 0
+RemoveOverlapWithTau2s 0
+Tau1MatchingDeltaR 0.3
+Tau2MatchingDeltaR 0.3
+
+Apply2017EEnoiseVeto false
+
+###################################
+    	     BJet
+##################################
+
+EtaCut 0.0 2.4
+PtCut 30.0
+
+RemoveOverlapWithMuon1s 1
+RemoveOverlapWithMuon2s 0
+Muon1MatchingDeltaR 0.4
+Muon2MatchingDeltaR 0.3
+
+RemoveOverlapWithElectron1s 0
+RemoveOverlapWithElectron2s 0
+Electron1MatchingDeltaR 0.3
+Electron2MatchingDeltaR 0.3
+
+RemoveOverlapWithTau1s 0
+RemoveOverlapWithTau2s 0
+Tau1MatchingDeltaR 0.3
+Tau2MatchingDeltaR 0.3
+
+Apply2017EEnoiseVeto false
+
+# The following was modified by NDS on 06/29/20.  The JetBTagging requirement is different for 2016 than it is for 2017 and 2018.
+# For 2016, the recommendation is to use CSVv2, whereas for 2017 and 2018 the DeepCSV is recommended.  It's possible to toggle 
+# between these two by using 0 and 1: 0 = false, 1 = true.  You can only have one value selected "true."
+ApplyJetBTaggingCSVv2 0 
+ApplyJetBTaggingDeepCSV 1
+ApplyJetBTaggingDeepFlav 0
+
+# The following was modified by NDS on 06/29/20.  The JetBTaggingCut requirement is different for 2016 than it is for 2017 and 2018.
+# For 2016, the recommendation is to use 0.8484, whereas for 2017 it's 0.4941 and for 2018 it's 0.4184.  The values can be found at
+# this link: https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X (this is for 2018, but the other years are similar).
+JetBTaggingWP   medium
+# JetBTaggingCut  0.6321
+# JetBTaggingCut  0.4941
+JetBTaggingCut  0.4184
+# JetBTaggingCut  0.8484
+MatchBToGen     0
+UseBtagSF       1
+RemoveBJetsFromJets 0

@@ -1,0 +1,121 @@
+###################################
+                Run
+####################################
+
+CalculatePUSystematics true
+# CalculatePUSystematics false
+DataHistos PileUpReweighting2018.root       # 2016: PileUpReweighting2016.root, 2017: PileUpReweighting2017.root, 2018: PileUpReweighting2018.root
+MCHistos mc2018_pileup_Dec2018reReco.root   # 2016: mc2016_pileup_Dec2018reReco.root, 2017: mc2017_pileup_Dec2018reReco.root, 2018: 2016: mc2018_pileup_Dec2018reReco.root
+DataPUHistName pileup
+MCPUHistName pileup
+
+SpecialMCPUCalculation false
+SpecialMCPUHistos new_mc2017_pileupReweighting_NanoAODv6.root
+/// SpecialMCPUHistos new_mc2017_pileupReweighting_NanoAODv6_wanddylo_incl.root
+
+ApplyTauIDSF false
+UsePileUpWeight true
+# ApplyZBoostSF false
+ApplyZBoostSF true
+
+isData false
+ApplyGenWeight  true
+
+/// ------ Data-specific cuts ------///
+FilterDataByGoldenJSON true
+ApplyHEMVeto2018 true
+
+/// ------ MC Gen-level cuts ------///
+/// --- HT filter --- ///
+DiscrByGenHT false
+# DiscrByGenHT true
+LowerGenHtCut 0.0
+# UpperGenHtCut 100.0
+UpperGenHtCut 70.0
+
+/// --- dilepton mass filter --- ///
+DiscrByGenDileptonMass false
+# DiscrByGenDileptonMass true
+# GenDilepMassRange 80.0 100.0
+GenDilepMassRange 0 70.0
+
+/// ------ Triggers ----- ///
+
+###########################################################BEGIN TRIGGERS###########################################################
+# The following was modified by NDS on 06/26/20.  Trigger1FirstRequirement HLT_IsoMu24, Trigger1SecondRequirement HLT_IsoMu24,
+# Trigger2FirstRequirement HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg, and 
+# Trigger2SecondRequirement HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg from the nanoAOD were all commented out and the old triggers
+# from the miniAOD were added below.  Lastly, the UseTriggerWildcard wsa changed to true.  Note that apparently, we can't use the 
+# old triggers from the miniAOD as before because doing things like that won't pick up all the pertinent triggers that need to be 
+# fired.  Instead, we use the ones below and set the "UseTriggerWildcard" to "true".  This will include the miniAOD triggers AND 
+# the other ones we need.  Additionally, note that for running 2016, we have to perform an extra step: we have to use a separate 
+# trigger (HLT_DoubleMediumIsoPFTau) for the all the 2016 MC samples and the 2016 Data samples with B-G in their name.  But for the
+# 2016 Data sample /Tau/Run2016H-Nano25Oct2019-v1/NANOAOD, we can use the normal trigger (HLT_DoubleMediumCombinedIsoPFTau).
+# In addition, the Trigger1 is controlled by a boolean in the file Cuts.in: NRecoTriggers1 (similarly, Trigger2 is controlled by a 
+# boolean in the file Cuts.in: NRecoTriggers2).  So in order for the Trigger1 to work here, we have to turn it on in Cuts.in by
+# setting it as ***NRecoTriggers1     1   -1.
+
+# The following was modified by NDS on 06/29/20.  This is ONLY for 2016 MC samples and 2016 Data samples with B-G in their name.
+# Note that with the parameter below set to UseTriggerWildcard true, it will actually use 3 triggers (even though we have only one
+# listed below): HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg, HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1, and 
+# HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg.  This is because we're asking it to look at the menu of available triggers in the 
+# nanoAOD file and then try to fire anything that starts with HLT_DoubleMediumIsoPFTau.  That returns the 3 possibilities listed
+# above.
+Trigger1FirstRequirement HLT_DoubleMediumChargedIsoPFTau
+Trigger1SecondRequirement HLT_DoubleMediumChargedIsoPFTau
+Trigger2FirstRequirement HLT_DoubleMediumChargedIsoPFTau
+Trigger2SecondRequirement HLT_DoubleMediumChargedIsoPFTau
+
+# The following was modified by NDS on 06/29/20.  This is FOR EVERYTHING ELSE (all MC and Data from 2017 and 2018 and for the 2016
+# Data sample /Tau/Run2016H-Nano25Oct2019-v1/NANOAOD).
+Trigger1FirstRequirement HLT_DoubleMediumCombinedIsoPFTau 
+# Trigger1SecondRequirement HLT_DoubleMediumCombinedIsoPFTau
+# Trigger2FirstRequirement HLT_DoubleMediumCombinedIsoPFTau
+# Trigger2SecondRequirement HLT_DoubleMediumCombinedIsoPFTau
+
+# UseTriggerWildcard false
+UseTriggerWildcard true
+
+# The following was modified by NDS on 06/26/20.  These are the new triggers from the nanoAOD that I'm not using.
+# Trigger1FirstRequirement HLT_IsoMu24
+# Trigger1SecondRequirement HLT_IsoMu27
+# Trigger1SecondRequirement HLT_IsoMu24
+
+# The following was modified by NDS on 06/26/20.  These are the old triggers I used for the miniAOD. 
+# Trigger2FirstRequirement HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg
+# Trigger2SecondRequirement HLT_DoubleMediumIsoPFTau40_Trk1_eta2p1_Reg
+# Trigger1FirstRequirement HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg
+# Trigger1SecondRequirement HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg
+############################################################END TRIGGERS############################################################
+
+///---Treat Muon as Neutrino---///
+
+TreatMuonsAsNeutrinos 0
+TreatOnlyOneMuonAsNeutrino 0
+TreatMuonsAsTaus 0
+
+///-----MET cuts------///
+ApplyMetFilters true
+MT2Mass 0.
+# The following was modified by NDS on 06/25/20.  If you want to turn this parameter on here, you need to turn it on also in the
+# Cuts.in file.
+# DiscrByMet false
+DiscrByMet true
+# MetCut 50.0 10000.0
+# MetCut 40.0 10000.0
+MetCut 30.0 10000.0
+# MetCut 20.0 10000.0
+# MetCut 0.0 30.0
+
+DiscrByMHT false
+MhtCut 50.0
+DiscrByHT false
+HtCut 30.0
+
+JetPtForMhtAndHt 30.0        
+JetEtaForMhtAndHt 5.0        
+ApplyJetLooseIDforMhtAndHt false
+ApplyJetTightIDforMhtAndHt true
+
+/// --- MC selection --- ///
+InitializeMCSelection false
